@@ -5,12 +5,13 @@ import re
 
 
 class VideoParser:
-    def __init__(self, directory_video, directory_clip_join, video_codec, video_quality, compression):
+    def __init__(self, directory_video, directory_clip_join, separator, video_codec, video_quality, compression):
         self.directory_video = directory_video
         self.directory_clip_join = directory_clip_join
         self.video_codec = video_codec
         self.video_quality = video_quality
         self.compression = compression
+        self.separator = separator
 
         self.regex_all_cases = "((\d)?(\d)?\:)?((\d)?\d:\d\d)(\.)?(\d *)"
         self.regex_hmsf = "(?<!\:)((\d)?\d:\d\d:\d\d\.\d*)"   # pattern 00:00:00.0000 or 0:00:00.0000
@@ -26,7 +27,7 @@ class VideoParser:
             return
         final_clip = concatenate_videoclips(clips_list)
         # save file
-        final_vid_name = self.directory_video + "\\" + "Concat_" + video_name
+        final_vid_name = self.directory_video + self.separator + "Concat_" + video_name
         final_clip.write_videofile(final_vid_name, threads=4, fps=24,
                                    codec=self.video_codec,
                                    preset=self.compression,
@@ -34,7 +35,7 @@ class VideoParser:
 
 
     def parse_video(self, video_name, segments, do_save_each_clip, extend_both_side_by_milli_secs):
-        full_vid_name = self.directory_video + "\\" + video_name
+        full_vid_name = self.directory_video + self.separator + video_name
         clipped = []
         video = VideoFileClip(full_vid_name)
         count = 0
@@ -46,7 +47,7 @@ class VideoParser:
             clipped.append(clip)
 
             if do_save_each_clip:
-                name_clip = self.directory_clip_join + "\\" + self.__index_video_name(video_name, count)
+                name_clip = self.directory_clip_join + self.separator + self.__index_video_name(video_name, count)
                 clip.write_videofile(name_clip,
                                      threads=4, fps=24,
                                      codec=self.video_codec,
