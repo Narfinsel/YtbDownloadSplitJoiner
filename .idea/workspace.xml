@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0d4a302-d011-4db2-9f8c-c01deef746a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/YtbDownloadSplitJoiner.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="d0d4a302-d011-4db2-9f8c-c01deef746a6" name="Changes" comment="first" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,7 +176,28 @@
       <option name="presentableId" value="Default" />
       <updated>1708259677275</updated>
     </task>
+    <task id="LOCAL-00001" summary="first">
+      <option name="closed" value="true" />
+      <created>1708260690475</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708260690475</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first">
+      <option name="closed" value="true" />
+      <created>1708260701749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708260701749</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first" />
+    <option name="LAST_COMMIT_MESSAGE" value="first" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
