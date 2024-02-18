@@ -5,7 +5,7 @@
 
 from user_classes.youtube_downloader import YoutubeDownloader
 from user_classes import video_parser
-import argparse, platform, os
+import argparse, platform, os, re
 from os.path import expanduser
 
 URL = "https://www.youtube.com/watch?v=f9zyenX2PWk"
@@ -18,9 +18,8 @@ DIRECTORY_DL_CLIP_JOIN = ""
 FOLDER_CLIP = "ClippedJoined"
 SAVE_EACH_CLIP = True
 EXTEND_BY_MILLI_SECS = 500
-SEGMENTS = [["0:30", "00:45"],
-            ["1:00", "01:15"],
-            ["2:30", "2:45"]]
+# SEGMENTS = "0:30-00:45, 1:00-01:15, 2:30-2:45"
+SEGMENTS = "0:28-00:73, 1:02-01:19, 2:20-2:35"
 
 SEPARATOR = "\ or /"
 
@@ -42,7 +41,16 @@ def get_default_dl(separator):
 
 
 def parse_segments(segments):
-    pass
+    # big_segments = re.split(',|, |\[|\]', segments)
+    big_segments = re.split(',|, ', segments)
+    new_array = []
+    for big in big_segments:
+        if big != '':
+            big = big.strip()
+            small_segments = re.split("(\s)*-(\s)*", big)
+            new_array.append( [small for small in small_segments if small is not None])
+    return new_array
+
 
 
 def set_args():
@@ -73,7 +81,8 @@ def set_args():
     COMPRESSION = args.compression
     SAVE_EACH_CLIP = args.save_clips
     EXTEND_BY_MILLI_SECS = abs(args.extend_ms)
-    # SEGMENTS = args.segments
+    SEGMENTS = args.segments
+    SEGMENTS = parse_segments(SEGMENTS)
 
     # print(f"  -  SEGMENTS = {SEGMENTS}")
     SEPARATOR = get_folder_separator()
@@ -127,7 +136,6 @@ def print_args():
 if __name__ == '__main__':
     set_args()
     run()
-    print_args()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
