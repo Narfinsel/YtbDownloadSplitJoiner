@@ -34,6 +34,7 @@ def get_args():
     num1 = args.num1
     num2 = args.num2
     num3 = args.num3
+    print(f" {num1} + {num2} + {num3} = {num1 + num2 + num3} ")
 
 
 def run():
@@ -48,8 +49,8 @@ def run():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # get_args()
-    run()
+    get_args()
+    # run()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
