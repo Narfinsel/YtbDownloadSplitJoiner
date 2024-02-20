@@ -18,9 +18,7 @@ DIRECTORY_DL_CLIP_JOIN = ""
 FOLDER_CLIP = "ClippedJoined"
 SAVE_EACH_CLIP = True
 EXTEND_BY_MILLI_SECS = 500
-# SEGMENTS = "0:30-00:45, 1:00-01:15, 2:30-2:45"
-SEGMENTS = "0:28-00:73, 1:02-01:19, 2:20-2:35"
-
+SEGMENTS = "0:30-00:45, 1:00-01:15, 2:30-2:45"
 SEPARATOR = "\ or /"
 
 
@@ -37,7 +35,7 @@ def get_folder_separator():
 def get_default_dl(separator):
     home = expanduser("~")
     my_dl_location = home + separator + "Desktop" + separator + "Download_Ytb"
-    return  my_dl_location
+    return my_dl_location
 
 
 def parse_segments(segments):
@@ -67,7 +65,6 @@ def set_args():
     parser.add_argument("--extend_ms", type=int)
     parser.add_argument("--segments", type=str, required=True)
 
-
     global DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR
     global URL, RESOLUTION, SAVE_EACH_CLIP
     global VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION, EXTEND_BY_MILLI_SECS, SEGMENTS
@@ -82,17 +79,6 @@ def set_args():
     SAVE_EACH_CLIP = args.save_clips
     EXTEND_BY_MILLI_SECS = abs(args.extend_ms)
     SEGMENTS = args.segments
-    SEGMENTS = parse_segments(SEGMENTS)
-
-    # print(f"  -  SEGMENTS = {SEGMENTS}")
-    SEPARATOR = get_folder_separator()
-
-    if DIRECTORY_DL is None:
-        DIRECTORY_DL = get_default_dl(SEPARATOR)
-
-    DIRECTORY_DL_CLIP_JOIN = DIRECTORY_DL + SEPARATOR + FOLDER_CLIP
-    if not os.path.exists(DIRECTORY_DL_CLIP_JOIN):
-        os.makedirs(DIRECTORY_DL_CLIP_JOIN)
 
     if RESOLUTION is None:
         RESOLUTION = "720p"
@@ -107,15 +93,6 @@ def set_args():
     if EXTEND_BY_MILLI_SECS is None:
         EXTEND_BY_MILLI_SECS = 0
 
-
-def run():
-    youtube_dl = YoutubeDownloader(DIRECTORY_DL, URL, RESOLUTION)
-    youtube_dl.download()
-    v_name = youtube_dl.get_downloaded_title()
-
-    video_prs = video_parser.VideoParser(DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR,
-                                         VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION)
-    video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, EXTEND_BY_MILLI_SECS)
 
 
 def print_args():
@@ -132,9 +109,33 @@ def print_args():
     print(f"  -  SEGMENTS = {SEGMENTS}")
 
 
+def run():
+    global SEGMENTS, SEPARATOR, DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN
+    SEPARATOR = get_folder_separator()
+    if DIRECTORY_DL is None:
+        DIRECTORY_DL = get_default_dl(SEPARATOR)
+
+    if DIRECTORY_DL_CLIP_JOIN is None or DIRECTORY_DL_CLIP_JOIN == '':
+        DIRECTORY_DL_CLIP_JOIN = DIRECTORY_DL + SEPARATOR + FOLDER_CLIP
+    if not os.path.exists(DIRECTORY_DL_CLIP_JOIN):
+        os.makedirs(DIRECTORY_DL_CLIP_JOIN)
+
+    SEGMENTS = parse_segments(SEGMENTS)
+    # print_args()
+
+    youtube_dl = YoutubeDownloader(DIRECTORY_DL, URL, RESOLUTION)
+    youtube_dl.download()
+    v_name = youtube_dl.get_downloaded_title()
+
+    video_prs = video_parser.VideoParser(DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR,
+                                         VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION)
+    video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, EXTEND_BY_MILLI_SECS)
+
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    set_args()
+    # Remove set_args if running from PyCharm or any other IDE
+    # set_args()
     run()
 
 

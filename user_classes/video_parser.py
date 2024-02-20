@@ -37,6 +37,7 @@ class VideoParser:
     def parse_video(self, video_name, segments, do_save_each_clip, extend_both_side_by_milli_secs):
         full_vid_name = self.directory_video + self.separator + video_name
         clipped = []
+
         video = VideoFileClip(full_vid_name)
         count = 0
         for segment in segments:

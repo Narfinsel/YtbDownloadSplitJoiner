@@ -19,9 +19,7 @@ class YoutubeDownloader:
         video = video_dl.streams.get_by_resolution(self.resolution)
         if video is None:
             video = video_dl.streams.get_highest_resolution()
-
         dl_resolution1 = video.__getattribute__("resolution")
-        print(f"   Resolution of youtube video =  {dl_resolution1}")
 
         try:
             video.download(dl_directory)
