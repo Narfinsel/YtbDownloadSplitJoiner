@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -43,13 +50,14 @@
   "keyToString": {
     "Python.YtbDownloadClipperJoiner (1).executor": "Run",
     "Python.YtbDownloadClipperJoiner (2).executor": "Run",
+    "Python.YtbDownloadClipperJoiner_Env.executor": "Run",
     "Python.main (1).executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "D:/___Storage/__Programing/Python/YtbDownloadSplitJoiner",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+    "settings.editor.selected.configurable": "preferences.editor"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -65,7 +73,7 @@
       <recent name="D:\___Storage\__Programing\Python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.YtbDownloadClipperJoiner (2)">
+  <component name="RunManager" selected="Python.YtbDownloadClipperJoiner_Env">
     <configuration name="YtbDownloadClipperJoiner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YtbDownloadSplitJoiner" />
       <option name="ENV_FILES" value="" />
@@ -80,28 +88,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../YtbDownloadSplitJoiner/YtbDownloadClipperJoiner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="YtbDownloadClipperJoiner (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="YtbDownloadSplitJoiner" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YtbDownloadClipperJoiner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,6 +118,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="YtbDownloadClipperJoiner_Env" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="YtbDownloadSplitJoiner" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="RUNNING_IN_PYCHARM" value="True" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (YtbDownloadSplitJoiner)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/YtbDownloadClipperJoiner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="YtbDownloadSplitJoiner" />
       <option name="ENV_FILES" value="" />
@@ -154,9 +164,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.YtbDownloadClipperJoiner (1)" />
+      <item itemvalue="Python.YtbDownloadClipperJoiner_Env" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.YtbDownloadClipperJoiner (2)" />
+        <item itemvalue="Python.YtbDownloadClipperJoiner_Env" />
         <item itemvalue="Python.YtbDownloadClipperJoiner (1)" />
         <item itemvalue="Python.YtbDownloadClipperJoiner" />
       </list>
@@ -219,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708465110010</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="With Script">
+      <option name="closed" value="true" />
+      <created>1708474667803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1708474667803</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -228,6 +251,7 @@
     <MESSAGE value="Multi-platform, full-args (except segments) + all classes this time" />
     <MESSAGE value="Including passable segments" />
     <MESSAGE value="Running directly from PyCharm now integrates with running from cmd python with parsed args" />
-    <option name="LAST_COMMIT_MESSAGE" value="Running directly from PyCharm now integrates with running from cmd python with parsed args" />
+    <MESSAGE value="With Script" />
+    <option name="LAST_COMMIT_MESSAGE" value="With Script" />
   </component>
 </project>
