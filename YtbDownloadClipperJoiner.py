@@ -18,6 +18,7 @@ DIRECTORY_DL = "C:\\Users\\User\\Desktop\\Download_Ytb"
 DIRECTORY_DL_CLIP_JOIN = ""
 FOLDER_CLIP = "ClippedJoined"
 SAVE_EACH_CLIP = True
+DELETE_AFTER = False
 EXTEND_BY_MILLI_SECS = 500
 SEGMENTS = "0:30-00:45, 1:00-01:15, 2:30-2:45"
 SEPARATOR = "\ or /"
@@ -62,6 +63,7 @@ def print_args():
     print(f"  -  VIDEO_QUALITY = {VIDEO_QUALITY}")
     print(f"  -  COMPRESSION = {COMPRESSION}")
     print(f"  -  SAVE_EACH_CLIP = {SAVE_EACH_CLIP}")
+    print(f"  -  DELETE_AFTER = {DELETE_AFTER}")
     print(f"  -  EXTEND_BY_MILLI_SECS = {EXTEND_BY_MILLI_SECS}")
     print(f"  -  SEGMENTS = {SEGMENTS}")
     print("\n")
@@ -77,11 +79,12 @@ def set_args():
     parser.add_argument("--qual", type=str)
     parser.add_argument("--comp", type=str)
     parser.add_argument("--save", type=str)
+    parser.add_argument("--deldl", type=str)
     parser.add_argument("--ext", type=int)
     parser.add_argument("--seg", type=str, required=True)
 
     global DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR
-    global URL, RESOLUTION, SAVE_EACH_CLIP
+    global URL, RESOLUTION, SAVE_EACH_CLIP, DELETE_AFTER
     global VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION, EXTEND_BY_MILLI_SECS, SEGMENTS
 
     args = parser.parse_args()
@@ -93,6 +96,7 @@ def set_args():
     VIDEO_QUALITY = args.qual
     COMPRESSION = args.comp
     SAVE_EACH_CLIP = args.save
+    DELETE_AFTER = args.deldl
     EXTEND_BY_MILLI_SECS = args.ext
     SEGMENTS = args.seg
 
@@ -106,6 +110,8 @@ def set_args():
         COMPRESSION = "slow"
     if SAVE_EACH_CLIP is None:
         SAVE_EACH_CLIP = False
+    if DELETE_AFTER is None:
+        DELETE_AFTER = True
     if EXTEND_BY_MILLI_SECS is None:
         EXTEND_BY_MILLI_SECS = 0
 
@@ -131,7 +137,7 @@ def run():
 
     video_prs = video_parser.VideoParser(DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR,
                                          VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION)
-    video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, EXTEND_BY_MILLI_SECS)
+    video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, DELETE_AFTER, EXTEND_BY_MILLI_SECS)
 
 
 # Press the green button in the gutter to run the script.

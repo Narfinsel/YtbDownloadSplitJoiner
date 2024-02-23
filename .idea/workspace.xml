@@ -41,13 +41,17 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2cXZ2aZSm7W17jlyUi515H9ACdW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.ConcatenateAllClipsFromDir.executor": "Run",
     "Python.YtbDownloadClipperJoiner (1).executor": "Run",
     "Python.YtbDownloadClipperJoiner (2).executor": "Run",
     "Python.YtbDownloadClipperJoiner_Env.executor": "Run",
@@ -69,11 +73,34 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\shell_scripts" />
       <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\user_classes" />
       <recent name="D:\___Storage\__Programing\Python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.YtbDownloadClipperJoiner_Env">
+  <component name="RunManager" selected="Python.ConcatenateAllClipsFromDir">
+    <configuration name="ConcatenateAllClipsFromDir" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="YtbDownloadSplitJoiner" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConcatenateAllClipsFromDir.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="YtbDownloadClipperJoiner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YtbDownloadSplitJoiner" />
       <option name="ENV_FILES" value="" />
@@ -166,11 +193,14 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.ConcatenateAllClipsFromDir" />
+      <item itemvalue="Python.YtbDownloadClipperJoiner" />
       <item itemvalue="Python.YtbDownloadClipperJoiner (1)" />
       <item itemvalue="Python.YtbDownloadClipperJoiner_Env" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ConcatenateAllClipsFromDir" />
         <item itemvalue="Python.YtbDownloadClipperJoiner_Env" />
         <item itemvalue="Python.YtbDownloadClipperJoiner (1)" />
         <item itemvalue="Python.YtbDownloadClipperJoiner" />
@@ -242,16 +272,26 @@
       <option name="project" value="LOCAL" />
       <updated>1708474667803</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="First Script OK, from cmd OK, updated py scripts">
+      <option name="closed" value="true" />
+      <created>1708643457071</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1708643457072</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first" />
     <MESSAGE value="Multi-platform, full-args (except segments)" />
     <MESSAGE value="Multi-platform, full-args (except segments) + all classes this time" />
     <MESSAGE value="Including passable segments" />
     <MESSAGE value="Running directly from PyCharm now integrates with running from cmd python with parsed args" />
     <MESSAGE value="With Script" />
-    <option name="LAST_COMMIT_MESSAGE" value="With Script" />
+    <MESSAGE value="First Script OK, from cmd OK, updated py scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Script OK, from cmd OK, updated py scripts" />
   </component>
 </project>

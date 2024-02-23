@@ -34,7 +34,7 @@ class VideoParser:
                                    ffmpeg_params=["-crf", self.video_quality])
 
 
-    def parse_video(self, video_name, segments, do_save_each_clip, extend_both_side_by_milli_secs):
+    def parse_video(self, video_name, segments, do_save_each_clip, delete_ytb_vid_after, extend_both_side_by_milli_secs):
         full_vid_name = self.directory_video + self.separator + video_name
         clipped = []
 
@@ -56,6 +56,10 @@ class VideoParser:
                                      ffmpeg_params=["-crf", self.video_quality])
         self.__join_clips(clipped, video_name)
         video.close()
+
+        if delete_ytb_vid_after:
+            if os.path.exists(full_vid_name):
+                os.remove(full_vid_name)
 
 
     def __index_video_name(self, vid_name, index):

@@ -29,8 +29,9 @@ resolution=""
 codec=""
 quality=""
 compression=""
-time_ext=""
 save_each_clip=""
+del_ytb_dl_vid=""
+time_ext=""
 clip_segments=""
 
 
@@ -46,6 +47,7 @@ while [ $# -gt 0 ]
 			--qual) quality="$2"; shift;;
 			--comp) compression="$2"; shift;;
 			--save) save_each_clip="$2"; shift;;
+			--deldl) del_ytb_dl_vid="$2"; shift;;
 			--ext) time_ext="$2"; shift;;
 			--seg) clip_segments="$2"; shift;;
 			--) shift;;
@@ -61,9 +63,9 @@ __resolution="720p"
 __codec="libx264"
 __quality=24
 __compression="slow"
-__time_ext=0
 __save_each_clip=False
-
+__del_ytb_dl_vid=True
+__time_ext=0
 
 
 #Set arguments to default if absent
@@ -85,15 +87,19 @@ fi
 if [$compression == ""]; then
 	compression=$__compression
 fi
-if [$time_ext == '']; then
-	time_ext=$__time_ext
-fi
 if [$save_each_clip == ""]; then
 	save_each_clip=$__save_each_clip
+fi
+if [$del_ytb_dl_vid == ""]; then
+	del_ytb_dl_vid=$__del_ytb_dl_vid
+fi
+if [$time_ext == '']; then
+	time_ext=$__time_ext
 fi
 if [$clip_segments == ""]; then
 	clip_segments=$__clip_segments
 fi
+
 
 
 #Print arguments
@@ -107,12 +113,13 @@ echo " Video Quality : $quality";
 echo " Compression   : $compression";
 echo " Extend Time   : $time_ext";
 echo " Save Clips    : $save_each_clip";
+echo " Delete Dl Ytb : $del_ytb_dl_vid";
 echo " Segments      : $clip_segments";
 echo ""
 
 
 #Run Python Script
-python $PY_SCRIPT_SPLIT_JOIN --dl $dir_download --dest $dir_clip_clips  --url $url --res $resolution --codec $codec --qual $quality --comp $compression --save $save_each_clip --ext $time_ext --seg $clip_segments
+python $PY_SCRIPT_SPLIT_JOIN --dl $dir_download --dest $dir_clip_clips  --url $url --res $resolution --codec $codec --qual $quality --comp $compression --save $save_each_clip --deldl $del_ytb_dl_vid --ext $time_ext --seg $clip_segments
 
 
 #Finish

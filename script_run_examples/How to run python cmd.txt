@@ -1,6 +1,6 @@
 
 FULL COMMAND:
-python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\YtbDownloadClipperJoiner.py --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 555p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45, 1:00-01:15, 2:30-2:45"
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\YtbDownloadClipperJoiner.py --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 555p --codec libx264 --qual 24 --comp slow --save True --deldl False --ext 500 --seg "0:30-00:45, 1:00-01:15, 2:30-2:45"
 
 
 COMMAND WITH ONLY SAVE & EXTEND:
