@@ -1,0 +1,22 @@
+
+FULL COMMAND:
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\ConcatenateAllClipsFromDir.py --dir "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --name "MyOwnVid_1" --suff "mp4" --res 720p --codec libx264 --qual 24 --comp slow
+
+
+COMMAND WITH ONLY DIR, NAME & EXTENSION (SUFFIX):
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\ConcatenateAllClipsFromDir.py --dir "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --name "MyOwnVid_1" --suff "mp4"
+
+
+COMMAND WITH ONLY DIR, NAME:
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\ConcatenateAllClipsFromDir.py --dir "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --name "MyOwnVid_1"
+
+
+COMMAND WITH ONLY NAME:
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\ConcatenateAllClipsFromDir.py --name "MyOwnVid_1"
+
+
+COMMAND EMPTY:
+python D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\ConcatenateAllClipsFromDir.py
+
+
+

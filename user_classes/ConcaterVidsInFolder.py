@@ -11,7 +11,6 @@ class ConcaterVidsInFolder:
         self.video_quality = video_quality
         self.compression = compression
         self.regex_ext = "(^.*\.(" + extension + ")$)"
-        # self.regex_ext = "(^.*\.("+ '|'.join(extensions) +")$)"   " for array of extensions
 
 
     def __retrieve_vids_from_folder(self, flag_present_in_name=""):
@@ -34,7 +33,6 @@ class ConcaterVidsInFolder:
 
     def join_videos(self, final_vid_name, flag_present_in_name=""):
         name_list = self.__retrieve_vids_from_folder(flag_present_in_name)
-        print(f" final_vid_name = {final_vid_name}        self.extension = {self.extension}")
         final_vid_name = final_vid_name + "." + self.extension
         final_vid_name = os.path.join(self.directory_concat, final_vid_name)
 

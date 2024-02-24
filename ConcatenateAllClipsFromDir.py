@@ -47,8 +47,6 @@ def set_args():
     VIDEO_QUALITY = args.qual
     COMPRESSION = args.comp
 
-    if FINAL_VID_NAME is None:
-        FINAL_VID_NAME = "PyConcaterVid_" + str(random.randint(1, 1000))
     if PREF_EXTENSION is None:
         PREF_EXTENSION = "mp4"
     if RESOLUTION is None:
@@ -62,11 +60,13 @@ def set_args():
 
 
 def run():
-    global DIRECTORY_DL
+    global DIRECTORY_DL, FINAL_VID_NAME
     if DIRECTORY_DL is None:
         DIRECTORY_DL = get_default_dl()
     if not os.path.exists(DIRECTORY_DL):
         os.makedirs(DIRECTORY_DL)
+    if FINAL_VID_NAME is None:
+        FINAL_VID_NAME = "PyConcaterVid_" + str(random.randint(1, 1000))
 
     concater = ConcaterVidsInFolder(DIRECTORY_DL, PREF_EXTENSION, VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION)
     concater.join_videos(FINAL_VID_NAME)
