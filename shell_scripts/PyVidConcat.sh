@@ -1,5 +1,5 @@
 #!/bin/sh
-#!/bin/sh
+#!/bin/s
 
 #EXAMPLES OF HOW TO RUN IN CMD
 :'
