@@ -12,7 +12,6 @@ PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --save 
 PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
 
 PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk
-#Just for download
 
 ---> IGNORE WHAT IS ABOVE THIS <---
 
@@ -22,7 +21,7 @@ PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk
 
 #Python Script
 PY_SCRIPT_SPLIT_JOIN="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\YtbDownloadClipperJoiner.py"
-SLEEP_AFTER_DONE=50
+SLEEP_AFTER_DONE=10
 
 
 #Set start values so that reading can be done even if argument is absent
@@ -70,6 +69,7 @@ __compression="slow"
 __save_each_clip=False
 __del_ytb_dl_vid=True
 __time_ext=0
+__clip_segments=""
 
 
 #Set arguments to default if absent
