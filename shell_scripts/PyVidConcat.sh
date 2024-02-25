@@ -3,13 +3,15 @@
 
 #EXAMPLES OF HOW TO RUN IN CMD
 :'
-PyDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --deldl False --ext 500 --seg "0:30-00:45,2:30-2:45"
+PyVidsConcat.sh --dir "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --name "Chupacabra" --suff mp4 --res 720p --codec libx264 --qual 24 --comp slow
 
-PyDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidConcat.sh --dir "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --name "Chupacabra" --suff mp4
 
-PyDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidConcat.sh --name "Chupacabra" --suff mp4
 
-PyDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidConcat.sh --name "Chupacabra"
+
+PyVidConcat.sh
 ---> IGNORE WHAT IS ABOVE THIS <---
 
 '
@@ -100,8 +102,3 @@ python $PY_SCRIPT_CONCAT --dir $dir_concat --name $vid_name  --suff $suffix --re
 #Finish
 echo "DONE"
 sleep $SLEEP_AFTER_DONE
-
-
-
-
-

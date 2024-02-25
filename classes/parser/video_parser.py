@@ -1,3 +1,4 @@
+import os.path
 
 from moviepy.editor import *
 from datetime import datetime, timedelta
@@ -5,19 +6,20 @@ import re
 
 
 class VideoParser:
-    def __init__(self, directory_video, directory_clip_join, separator, video_codec, video_quality, compression):
+    def __init__(self, directory_video, directory_clip_join, video_codec, video_quality, compression):
         self.directory_video = directory_video
         self.directory_clip_join = directory_clip_join
         self.video_codec = video_codec
         self.video_quality = video_quality
         self.compression = compression
-        self.separator = separator
 
         self.regex_all_cases = "((\d)?(\d)?\:)?((\d)?\d:\d\d)(\.)?(\d *)"
         self.regex_hmsf = "(?<!\:)((\d)?\d:\d\d:\d\d\.\d*)"   # pattern 00:00:00.0000 or 0:00:00.0000
+        self.regex_hms = "(?<!\:)((\d)?\d:\d\d:\d\d)"         # pattern 00:00:00 or 0:00:00
         self.regex_msf = "(?<!\:)((\d)?\d:\d\d\.\d*)"         # pattern 00:00.0000 or 0:00.0000
         self.regex_ms = "((\d)?\d:\d\d)"                      # pattern 00:00 or 0:00
         self.pattern_hmsf = re.compile(self.regex_hmsf)
+        self.pattern_hms = re.compile(self.regex_hms)
         self.pattern_msf = re.compile(self.regex_msf)
         self.pattern_ms = re.compile(self.regex_ms)
 
@@ -27,7 +29,7 @@ class VideoParser:
             return
         final_clip = concatenate_videoclips(clips_list)
         # save file
-        final_vid_name = self.directory_video + self.separator + "Concat_" + video_name
+        final_vid_name = os.path.join(self.directory_video, "Concat_" + video_name)
         final_clip.write_videofile(final_vid_name, threads=4, fps=24,
                                    codec=self.video_codec,
                                    preset=self.compression,
@@ -35,7 +37,8 @@ class VideoParser:
 
 
     def parse_video(self, video_name, segments, do_save_each_clip, delete_ytb_vid_after, extend_both_side_by_milli_secs):
-        full_vid_name = self.directory_video + self.separator + video_name
+        segments = self.__parse_segments(segments)
+        full_vid_name = os.path.join(self.directory_video, video_name)
         clipped = []
 
         video = VideoFileClip(full_vid_name)
@@ -48,7 +51,7 @@ class VideoParser:
             clipped.append(clip)
 
             if do_save_each_clip:
-                name_clip = self.directory_clip_join + self.separator + self.__index_video_name(video_name, count)
+                name_clip = os.path.join(self.directory_clip_join, self.__index_video_name(video_name, count))
                 clip.write_videofile(name_clip,
                                      threads=4, fps=24,
                                      codec=self.video_codec,
@@ -73,6 +76,8 @@ class VideoParser:
     def __subtract_delta_and_return_string(self, str_time, delta_time):
         if self.pattern_hmsf.match(str_time):
             format_for_time = '%H:%M:%S.%f'
+        elif self.pattern_hms.match(str_time):
+            format_for_time = '%H:%M:%S'
         elif self.pattern_msf.match(str_time):
             format_for_time = '%M:%S.%f'
         elif self.pattern_ms.match(str_time):
@@ -83,6 +88,19 @@ class VideoParser:
 
         if format_for_time == '%M:%S':
             format_for_time = '%M:%S.%f'
+        if format_for_time == '%H:%M:%S':
+            format_for_time = '%H:%M:%S.%f'
         back_to_string = datetime.strftime(time_object, format_for_time)
         return back_to_string
 
+
+    def __parse_segments(self, segments):
+        # big_segments = re.split(',|, |\[|\]', segments)
+        big_segments = re.split(',|, ', segments)
+        new_array = []
+        for big in big_segments:
+            if big != '':
+                big = big.strip()
+                small_segments = re.split("(\s)*-(\s)*", big)
+                new_array.append( [small for small in small_segments if small is not None])
+        return new_array

@@ -62,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/___Storage/__Programing/Python/YtbDownloadSplitJoiner/script_run_examples",
+    "last_opened_file_path": "D:/___Storage/__Programing/Python/YtbDownloadSplitJoiner",
     "settings.editor.selected.configurable": "preferences.editor"
   },
   "keyToStringList": {
@@ -75,15 +75,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner" />
       <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\script_run_examples" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\classes\concater" />
+      <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\classes" />
       <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\shell_scripts" />
       <recent name="D:\___Storage\__Programing\Python\YtbDownloadSplitJoiner\user_classes" />
       <recent name="D:\___Storage\__Programing\Python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ConcatenateAllClipsFromDir">
+  <component name="RunManager" selected="Python.YtbDownloadClipperJoiner_Env">
     <configuration name="ConcatenateAllClipsFromDir" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="YtbDownloadSplitJoiner" />
       <option name="ENV_FILES" value="" />
@@ -205,8 +208,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ConcatenateAllClipsFromDir" />
         <item itemvalue="Python.YtbDownloadClipperJoiner_Env" />
+        <item itemvalue="Python.ConcatenateAllClipsFromDir" />
         <item itemvalue="Python.YtbDownloadClipperJoiner (1)" />
         <item itemvalue="Python.YtbDownloadClipperJoiner" />
       </list>
@@ -293,7 +296,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708729296984</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Concater that works even from cmd and a start concat shell script">
+      <option name="closed" value="true" />
+      <created>1708762699760</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708762699760</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Final">
+      <option name="closed" value="true" />
+      <created>1708876281541</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708876281541</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -306,6 +325,8 @@
     <MESSAGE value="With Script" />
     <MESSAGE value="First Script OK, from cmd OK, updated py scripts" />
     <MESSAGE value="Concater that works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Concater that works" />
+    <MESSAGE value="Concater that works even from cmd and a start concat shell script" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
 </project>

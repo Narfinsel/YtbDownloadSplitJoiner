@@ -1,15 +1,14 @@
 # This is a sample Python script.
-import sys
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-from user_classes.youtube_downloader import YoutubeDownloader
-from user_classes import video_parser
+from classes.parser.youtube_downloader import YoutubeDownloader
+from classes.parser import video_parser
 import argparse, platform, os, re
 from os.path import expanduser
 
-URL = "https://www.youtube.com/watch?v=f9zyenX2PWk"
+URL = "https://www.youtube.com/watch?v=mIV5rCuDb74"
 RESOLUTION = "720p"
 VIDEO_CODEC = "libx264"
 VIDEO_QUALITY = "24"
@@ -20,36 +19,15 @@ FOLDER_CLIP = "ClippedJoined"
 SAVE_EACH_CLIP = True
 DELETE_AFTER = False
 EXTEND_BY_MILLI_SECS = 500
+SEGMENTS = ""
 SEGMENTS = "0:30-00:45, 1:00-01:15, 2:30-2:45"
-SEPARATOR = "\ or /"
 
 
-def get_folder_separator():
-    sys_platform = platform.system()
-    separator = "ss"
-    if sys_platform == 'Darwin' or sys_platform =='Linux':
-        separator = "/"
-    elif sys_platform == 'Windows':
-        separator = "\\"
-    return separator
 
-
-def get_default_dl(separator):
+def get_default_dl():
     home = expanduser("~")
-    my_dl_location = home + separator + "Desktop" + separator + "Download_Ytb"
+    my_dl_location = os.path.join(home, "Desktop", "Download_Ytb")
     return my_dl_location
-
-
-def parse_segments(segments):
-    # big_segments = re.split(',|, |\[|\]', segments)
-    big_segments = re.split(',|, ', segments)
-    new_array = []
-    for big in big_segments:
-        if big != '':
-            big = big.strip()
-            small_segments = re.split("(\s)*-(\s)*", big)
-            new_array.append( [small for small in small_segments if small is not None])
-    return new_array
 
 
 def print_args():
@@ -81,9 +59,9 @@ def set_args():
     parser.add_argument("--save", type=str)
     parser.add_argument("--deldl", type=str)
     parser.add_argument("--ext", type=int)
-    parser.add_argument("--seg", type=str, required=True)
+    parser.add_argument("--seg", type=str)
 
-    global DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR
+    global DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN
     global URL, RESOLUTION, SAVE_EACH_CLIP, DELETE_AFTER
     global VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION, EXTEND_BY_MILLI_SECS, SEGMENTS
 
@@ -114,30 +92,33 @@ def set_args():
         DELETE_AFTER = True
     if EXTEND_BY_MILLI_SECS is None:
         EXTEND_BY_MILLI_SECS = 0
+    if SEGMENTS is None:
+        SEGMENTS = ""
 
 
 def run():
-    global SEGMENTS, SEPARATOR, DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, EXTEND_BY_MILLI_SECS
+    global SEGMENTS, DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, EXTEND_BY_MILLI_SECS
 
-    SEPARATOR = get_folder_separator()
     if DIRECTORY_DL is None:
-        DIRECTORY_DL = get_default_dl(SEPARATOR)
+        DIRECTORY_DL = get_default_dl()
+    if not os.path.exists(DIRECTORY_DL):
+        os.makedirs(DIRECTORY_DL)
 
     if DIRECTORY_DL_CLIP_JOIN is None or DIRECTORY_DL_CLIP_JOIN == '':
-        DIRECTORY_DL_CLIP_JOIN = DIRECTORY_DL + SEPARATOR + FOLDER_CLIP
+        DIRECTORY_DL_CLIP_JOIN = os.path.join(DIRECTORY_DL, FOLDER_CLIP)
     if not os.path.exists(DIRECTORY_DL_CLIP_JOIN):
         os.makedirs(DIRECTORY_DL_CLIP_JOIN)
 
     EXTEND_BY_MILLI_SECS = abs(int(EXTEND_BY_MILLI_SECS))
-    SEGMENTS = parse_segments(SEGMENTS)
 
     youtube_dl = YoutubeDownloader(DIRECTORY_DL, URL, RESOLUTION)
     youtube_dl.download()
     v_name = youtube_dl.get_downloaded_title()
 
-    video_prs = video_parser.VideoParser(DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN, SEPARATOR,
+    video_prs = video_parser.VideoParser(DIRECTORY_DL, DIRECTORY_DL_CLIP_JOIN,
                                          VIDEO_CODEC, VIDEO_QUALITY, COMPRESSION)
-    video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, DELETE_AFTER, EXTEND_BY_MILLI_SECS)
+    if SEGMENTS != "":
+        video_prs.parse_video(v_name, SEGMENTS, SAVE_EACH_CLIP, DELETE_AFTER, EXTEND_BY_MILLI_SECS)
 
 
 # Press the green button in the gutter to run the script.

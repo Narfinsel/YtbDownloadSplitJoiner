@@ -3,13 +3,17 @@
 
 #EXAMPLES OF HOW TO RUN IN CMD
 :'
-PyDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45,2:30-2:45"
+PyVidDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45,2:30-2:45"
 
-PyDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidDownClipJoiner.sh --dl "C:\Users\User\Desktop\Download_Ytb" --dest "C:\Users\User\Desktop\Download_Ytb\ClippedJoined" --url https://www.youtube.com/watch?v=f9zyenX2PWk --res 720p --codec libx264 --qual 24 --comp slow --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
 
-PyDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --save True --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
 
-PyDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk --ext 500 --seg "0:30-00:45,1:00-01:15,2:30-2:45"
+
+PyVidDownClipJoiner.sh --url https://www.youtube.com/watch?v=f9zyenX2PWk
+#Just for download
+
 ---> IGNORE WHAT IS ABOVE THIS <---
 
 '

@@ -5,7 +5,7 @@ import random
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-from user_classes.ConcaterVidsInFolder import ConcaterVidsInFolder
+from classes.concater.ConcaterVidsInFolder import ConcaterVidsInFolder
 from os.path import expanduser
 import argparse
 
@@ -65,6 +65,7 @@ def run():
         DIRECTORY_DL = get_default_dl()
     if not os.path.exists(DIRECTORY_DL):
         os.makedirs(DIRECTORY_DL)
+
     if FINAL_VID_NAME is None:
         FINAL_VID_NAME = "PyConcaterVid_" + str(random.randint(1, 1000))
 
