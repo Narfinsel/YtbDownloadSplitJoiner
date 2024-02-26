@@ -96,7 +96,7 @@ class VideoParser:
 
     def __parse_segments(self, segments):
         # big_segments = re.split(',|, |\[|\]', segments)
-        big_segments = re.split(',|, ', segments)
+        big_segments = re.split(',|, |_+', segments)
         new_array = []
         for big in big_segments:
             if big != '':
